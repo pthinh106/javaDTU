@@ -1,0 +1,2 @@
+admin_npt 123456
+admin_VIP 123456
