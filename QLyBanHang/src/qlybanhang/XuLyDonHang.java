@@ -97,6 +97,11 @@ public class XuLyDonHang extends javax.swing.JPanel {
 
         cbxVanchuyen.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         cbxVanchuyen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Viettel Post", "Giao Hàng Nhanh", "Giao Hàng Tiết Kiệm" }));
+        cbxVanchuyen.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxVanchuyenItemStateChanged(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Giá Vận Chuyển");
@@ -211,6 +216,17 @@ public class XuLyDonHang extends javax.swing.JPanel {
         JFrame f = new JFrame();  
         JOptionPane.showMessageDialog(f,"Xử Lý Đơn Hàng Thành Công.","Alert",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_button1MouseClicked
+
+    private void cbxVanchuyenItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVanchuyenItemStateChanged
+        // TODO add your handling code here:
+        if(cbxVanchuyen.getSelectedItem().equals("Viettel Post")){
+            labGVC.setText("20.000 VND");
+        }else if(cbxVanchuyen.getSelectedItem().equals("Giao Hàng Nhanh")){
+            labGVC.setText("22.000 VND");
+        }else if(cbxVanchuyen.getSelectedItem().equals("Giao Hàng Tiết Kiệm")){
+            labGVC.setText("18.000 VND");
+        }
+    }//GEN-LAST:event_cbxVanchuyenItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
