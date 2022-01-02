@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -110,19 +111,21 @@ public class XoaSanPham extends javax.swing.JPanel {
                     .addComponent(txtMVT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnKtra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnKtraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKtraMouseClicked
         // TODO add your handling code here:
-         for (int i=0;i<ListHH.size();i++)
-                if(ListHH.get(i).getMVT().contains(txtMVT.getText())){
-                    dtm.addRow(new Object[]{ListHH.get(i).getMVT(), ListHH.get(i).getTenHang(), ListHH.get(i).getNoiSanXuat(), ListHH.get(i).getGiaThanh(), ListHH.get(i).getNgayNhapKho(), ListHH.get(i).getSoLuong()});
-                    check = true;
+        check = false;
+        dtm.setRowCount(0);
+        for (int i=0;i<ListHH.size();i++)
+            if(ListHH.get(i).getMVT().contains(txtMVT.getText())){
+                dtm.addRow(new Object[]{ListHH.get(i).getMVT(), ListHH.get(i).getTenHang(), ListHH.get(i).getNoiSanXuat(), ListHH.get(i).getGiaThanh(), ListHH.get(i).getNgayNhapKho(), ListHH.get(i).getSoLuong()});
+                check = true;
                 }
         if(!check){
             dtm.addRow(new Object[]{"null","null","null","null","null"});
@@ -132,9 +135,11 @@ public class XoaSanPham extends javax.swing.JPanel {
     private void btnRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveMouseClicked
         // TODO add your handling code here:
         if(check){
-           QLHH.RemoveSanPham(txtMVT.getText());
+           int row = tabHienThi.getSelectedRow();
+           QLHH.RemoveSanPham(txtMVT.getText(),row);
+           ListHH = QLHH.postDL();
            txtMVT.setText("");
-           dtm.removeRow(0);
+           dtm.removeRow(row);
         }
     }//GEN-LAST:event_btnRemoveMouseClicked
 

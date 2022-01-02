@@ -606,14 +606,19 @@ public class QLHH extends javax.swing.JFrame {
     public static void addSanPham(HangHoa a){
         ListHH.add(a);
     }
-    public static void RemoveSanPham(String MVT){
+    public static void RemoveSanPham(String MVT,int row){
+        boolean check = false;
         for(HangHoa i : ListHH){
             if(i.getMVT().equals(MVT)){
                 ListHH.remove(i);
                 JFrame f = new JFrame();  
                 JOptionPane.showMessageDialog(f,"Xóa Thành Công.","Alert",JOptionPane.INFORMATION_MESSAGE);
+                check = true;
                 break;
             }
+        }
+        if(!check){
+            ListHH.remove(row);
         }
         try {
             FileWriter fw = new FileWriter("src\\datatxt\\HangHoa.txt");
@@ -681,7 +686,9 @@ public class QLHH extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QLHH().setVisible(true);
+                QLHH main = new QLHH();
+                main.setLocationRelativeTo(null);
+                main.setVisible(true);
             }
         });
     }
