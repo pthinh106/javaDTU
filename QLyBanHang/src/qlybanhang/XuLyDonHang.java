@@ -197,7 +197,7 @@ public class XuLyDonHang extends javax.swing.JPanel {
         String url = "src\\datatxt\\"+ListDH.get(0).getMVT()+ListDH.get(0).getTen()+".txt";
         try {
             FileWriter fw = new FileWriter(url);
-            String sbill = ListDH.get(0).getMVT()+"-"+ListDH.get(0).getTen()+"-"+ListDH.get(0).getDiaChi()+"-"+ListDH.get(0).getSDT()+"-"+ListDH.get(0).getNgayDH()+"-"+ListDH.get(0).getSL()+"-"+ListDH.get(0).getTT()+"\n"+"Đơn Vị Vận Chuyển: "+cbxVanchuyen.getSelectedItem()+" "+"Giá Vận Chuyển: "+labGVC.getText()+"Ngày Xuất Kho: "+datetime.getText()+"\n"+"Người Xử Lý"+QLHH.UserLogin;
+            String sbill = ListDH.get(0).getMVT()+"-"+ListDH.get(0).getTen()+"-"+ListDH.get(0).getDiaChi()+"-"+ListDH.get(0).getSDT()+"-"+ListDH.get(0).getNgayDH()+"-"+ListDH.get(0).getSL()+"-"+ListDH.get(0).getTT()+"\n"+"Đơn Vị Vận Chuyển: "+cbxVanchuyen.getSelectedItem()+"\n"+"Giá Vận Chuyển: "+labGVC.getText()+"\n"+"Ngày Xuất Kho: "+datetime.getText()+"\n"+"Người Xử Lý"+QLHH.UserLogin;
                 fw.write(sbill);
             fw.close();
         } catch (Exception e) {

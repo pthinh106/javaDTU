@@ -619,6 +619,9 @@ public class QLHH extends javax.swing.JFrame {
         }
         if(!check){
             ListHH.remove(row);
+            JFrame f = new JFrame();  
+            JOptionPane.showMessageDialog(f,"Xóa Thành Công.","Alert",JOptionPane.INFORMATION_MESSAGE);
+            check = true;
         }
         try {
             FileWriter fw = new FileWriter("src\\datatxt\\HangHoa.txt");
@@ -654,8 +657,6 @@ public class QLHH extends javax.swing.JFrame {
     public static ArrayList<HangHoa> postDL(){
         return ListHH;
     }
-    
-    
     /**
      * @param args the command line arguments
      */
