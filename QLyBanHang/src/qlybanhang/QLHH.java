@@ -634,14 +634,21 @@ public class QLHH extends javax.swing.JFrame {
         }
     }
     public static void CapnhapSoLuong(String MVT,String SL){
+        boolean check = false;
         for(HangHoa i : ListHH){
             if(i.getMVT().equals(MVT)){
                 i.setSoLuong(SL);
                 System.out.println(i.getSoLuong());
                 JFrame f = new JFrame();  
                 JOptionPane.showMessageDialog(f,"Cập Nhập Thành Công.","Alert",JOptionPane.INFORMATION_MESSAGE);
+                check = true;
                 break;
             }
+        }
+        if(!check){
+            JFrame f = new JFrame();  
+            JOptionPane.showMessageDialog(f,"Bạn Chưa Nhập Đủ Thông Tin.","Alert",JOptionPane.INFORMATION_MESSAGE);
+            return;
         }
         try {
             FileWriter fw = new FileWriter("src\\datatxt\\HangHoa.txt");
