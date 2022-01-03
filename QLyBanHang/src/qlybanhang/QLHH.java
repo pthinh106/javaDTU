@@ -89,7 +89,6 @@ public class QLHH extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(null);
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 680));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -133,7 +132,7 @@ public class QLHH extends javax.swing.JFrame {
         pnlChucnangpublic.setLayout(new javax.swing.BoxLayout(pnlChucnangpublic, javax.swing.BoxLayout.Y_AXIS));
 
         btnHienThiHH.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnHienThiHH.setLabel("Hiện Thị Hàng Hóa");
+        btnHienThiHH.setLabel("Thông Tin Hàng Hóa");
         btnHienThiHH.setMaximumSize(new java.awt.Dimension(211, 45));
         btnHienThiHH.setMinimumSize(new java.awt.Dimension(211, 45));
         btnHienThiHH.setName("Hiện Thị Hàng Hóa"); // NOI18N
